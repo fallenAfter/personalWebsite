@@ -1,11 +1,14 @@
-body{
-	background-color:#8BA870;
+html{
+	background: linear-gradient(rgba(55,66,44,0.5),rgba(55,66,44,0.5)), url("/images/main-image.jpg");
+	
+	
+	background-size:cover;
 }
 /*partial styles*/
 header{
 	min-width:100px;
 	width:10%;
-	height:100vh;
+	height:95vh;
 	display:inline-block;
 	background-color:rgba(250,250,250,0.3);
 	padding:20px;
@@ -13,14 +16,16 @@ header{
 footer{
 	width:87%;
 	min-height:30px;
+	height:5vh;
 	width:auto;
-	background-color:black;
+	background-color:#333;
 
 }
 body>section{
 	display:inline-block;
 	height:95vh;
-	background-color: red;
+	background-color: ;
 	width:86%;
+	vertical-align:top;
 }
 /*main section styles*/
