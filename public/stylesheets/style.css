@@ -1,8 +1,27 @@
 html{
 	background: linear-gradient(rgba(55,66,44,0.5),rgba(55,66,44,0.5)), url("/images/main-image.jpg");
-	
-	
 	background-size:cover;
+	/*base font styles*/
+	font-size:16px;
+	color: #333;
+}
+abbr{
+	border-bottom:none !important;
+	cursor:default !important;
+}
+/*Global header styles*/
+h1{
+	font-size:4em;
+	color:#333;
+	font-family:'Open Sans', Arial, sans-serif;
+}
+h2{
+	font-size:2em;
+	color:#333;
+}
+h3{
+	font-size:1.5em;
+	color:#333;
 }
 /*partial styles*/
 header{
@@ -28,4 +47,57 @@ body>section{
 	width:86%;
 	vertical-align:top;
 }
+/*navigation styles*/
+nav a{
+	text-transform:capitalize;
+	color:#eee ;
+}
 /*main section styles*/
+/*home page styles*/
+.home{
+	width:80%;
+	max-width:600px;
+	margin:10vh auto auto 10vw;
+	border:3px solid #333;
+	padding: 20px;
+	background:#ddd;
+}
+.home>*{
+	border:3px solid #333;
+	padding:5px 0px 2px;
+	margin-top:5px;
+}
+.home>section{
+	width:100%;
+	margin:2vh auto;
+}
+.home>section>a{
+	width:48%;
+	margin:0 1%;
+}
+.home a{
+	width:48%;
+	display:inline-block;
+	text-transform: capitalize;
+	color:#333;
+}
+.home a:hover{
+	color:000;
+	text-decoration: underline;
+}
+.home ul{
+	border:none;
+}
+.home ul>li{
+	border:3px solid #333;
+	padding:5px 2px 2px;
+	display:inline-block;
+	width:32%;
+}
+.home ul>li:first-of-type{
+	margin-right: 2%;
+}
+.home ul>li:last-of-type{
+	margin-left: 2%;
+}
+
