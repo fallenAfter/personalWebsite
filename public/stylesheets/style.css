@@ -14,6 +14,7 @@ h1{
 	font-size:4em;
 	color:#333;
 	font-family:'Open Sans', Arial, sans-serif;
+	text-transform:capitalize;
 }
 h2{
 	font-size:2em;
@@ -57,39 +58,26 @@ nav a{
 .home{
 	width:80%;
 	max-width:600px;
-	margin:10vh auto auto 10vw;
-	border:3px solid #333;
+	margin:10vh auto;
 	padding: 20px;
 	background:#ddd;
-}
-.home>*{
-	border:3px solid #333;
-	padding:5px 0px 2px;
-	margin-top:5px;
 }
 .home>section{
 	width:100%;
 	margin:2vh auto;
 }
-.home>section>a{
-	width:48%;
-	margin:0 1%;
-}
 .home a{
 	width:48%;
 	display:inline-block;
 	text-transform: capitalize;
-	color:#333;
 }
 .home a:hover{
-	color:000;
-	text-decoration: underline;
+	color:#000;
 }
 .home ul{
 	border:none;
 }
 .home ul>li{
-	border:3px solid #333;
 	padding:5px 2px 2px;
 	display:inline-block;
 	width:32%;
@@ -101,3 +89,30 @@ nav a{
 	margin-left: 2%;
 }
 
+
+/*portfolio styles*/
+.portfolio{
+	box-sizing:border-box;
+	padding:40px;
+}
+.portfolio h1{
+	color:#ddd;
+}
+.portfolio>section{
+	width:250px;
+	height:150px;
+	background:red;
+	vertical-align:initial;
+	margin:1%;
+	display:inline-block;
+}
+.portfolio>section>img{
+	width:250px;
+	height:150px;
+	position:relative;
+	background:blue;
+
+}
+.portfolio>section>h3{
+	position:absolute;
+}
