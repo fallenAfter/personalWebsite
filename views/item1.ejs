@@ -1,0 +1,17 @@
+<!-- attach header -->
+<%- include partials/header.ejs %>
+<!-- main content goes here -->
+<section class="portfolioItem">
+	<h1><%= title %></h1>
+	<!-- container to hold image. This will resize to view full image but by default is a height to maintane a layout -->
+	<div id="imgContainer" class="test">
+		<img src="<%= imgURL %>" alt="<%= imgALT %>">
+	</div>
+	<a href="#" id="seeImg">see full image</a>
+
+	<p><%= portfolioCopy %></p>
+	<a href="<%= gitHubAddr %>" class="button">Git Hub Repository</a>
+
+</section>
+<!-- Attach footer -->
+<%- include partials/footer.ejs %>
