@@ -3,7 +3,26 @@
 <!-- main content goes here -->
 <section class="contact">
 	<h1><%= title %></h1>
-	
+	<section>
+		<section>
+			<a href="https://github.com/fallenAfter"><i class="fa fa-github fa-5x"></i></a>
+		</section><section>
+			<a href="https://www.linkedin.com/in/brandon6elliott"><i class="fa fa-linkedin fa-5x"></i></a>
+		</section>
+	</section><section>
+		<form action="/contact">
+			<fieldset>
+				<legend>Lets get Talking</legend>
+				<label for="name">Name</label>
+				<input type="text"name="name" id="name" placeholder="name">
+				<label for="email">Email</label>
+				<input type="email" name="email" id='email' placeholder="Email">
+				<label for="project">Project</label>
+				<textarea name="project" id="project" cols="30" rows="10" placeholder="What can I help with?"></textarea>
+				<input type="submit" value="submit">
+			</fieldset>
+		</form>
+	</section>
 </section>
 <!-- Attach footer -->
 <%- include partials/footer.ejs %>

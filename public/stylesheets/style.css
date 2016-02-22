@@ -98,22 +98,45 @@ nav a{
 	color:#ddd;
 }
 .portfolio>section{
-	width:250px;
+	width:300px;
 	height:150px;
 	background:red;
 	vertical-align:initial;
 	margin:1%;
 	display:inline-block;
-}
-.portfolio>section>img{
-	width:250px;
-	height:150px;
 	position:relative;
-	background:blue;
 
 }
-.portfolio>section>h3{
+.portfolio>section:nth-of-type(1){
+	background: url('/images/jackieJones.png');
+	background-size: contain;
+}
+.portfolio>section:nth-of-type(2){
+	background: url('/images/barriecycling.png');
+	background-size: contain;
+}
+.portfolio>section img{
+	width:100%;
+	height:auto;
+	position:relative;
+
+}
+.portfolio>section>a{
 	position:absolute;
+	top:0;
+	height:100%;
+	width:100%;
+	
+}
+.portfolio>section h3{
+	position:absolute;
+	top:0;
+	color:#333;
+	padding-top:10px;
+	width:100%;
+	height:100%;
+	background: linear-gradient(rgba(250,250,250,0.7), rgba(250,250,250,0));
+	/*background:-moz-linear-gradient(down,rgba(250,250,250,0.7),rgba(250,250,250,0.0));*/
 }
 /*portfilio item pages*/
 .portfolioItem{
@@ -142,6 +165,9 @@ nav a{
 	padding:40px;
 	background:rgba(250,250,250,0.6);
 }
+.about p{
+	margin-bottom: 10px;
+}
 .about>section:first-of-type{
 	width:100%;
 	min-height:200px;
@@ -150,14 +176,22 @@ nav a{
 	display:inline-block;
 	width:20%;
 	height:auto;
+	float:left;
+	margin: 20px 20px 20px 0;
 }
 .about>section:nth-of-type(2){
 	width:100%;
 	min-height:200px;
 }
 .about>section:nth-of-type(2)>section{
-	width:25%;
+	width:100%;
 	display:inline-block;
+}
+.about>section:nth-of-type(2)>section li{
+	width:33%;
+	display:inline-block;
+	font-size: 1.5em;
+	margin-bottom: 10px;
 }
 .about>section:nth-of-type(3){
 	width:100%;
@@ -165,8 +199,14 @@ nav a{
 }
 .about>section:nth-of-type(3)>section{
 	width:50%;
-	display:inline-block;
+	display: inline-block;
+	vertical-align: top;
+
 }
+.about>section:nth-of-type(3)>section>p{
+	padding: 20px;
+}
+
 /*services styles*/
 .services{
 	box-sizing:border-box;
@@ -176,4 +216,62 @@ nav a{
 .services>section{
 	width:33%;
 	display:inline-block;
+	vertical-align:top;
+	padding: 20px;
 }
+.services>section h2{
+	text-align: center;
+	margin-bottom: 20px;
+}
+.services>section i{
+	width: 80px;
+	margin:20px auto;
+	display:block;
+}
+.services>section ul{
+	margin: 20px;
+}
+.services>section ul li{
+	list-style-type:  circle;
+}
+/*styles for contact page*/
+.contact{
+	box-sizing:border-box;
+	padding:40px;
+	background:rgba(250,250,250,0.6);
+}
+.contact>section{
+	display: inline-block;
+	vertical-align: top;
+}
+.contact>section:first-of-type{
+	width:66%;
+}
+.contact>section:first-of-type>section{
+	display:inline-block;
+	width:50%;
+	text-align: center;
+	margin-top:2em;
+}
+.contact>section:first-of-type>section a{
+	color:#333;
+	font-size: 2.5em;
+	text-align: center;
+}
+.contact>section:first-of-type>section a:hover{
+	color:#222;
+}
+.contact>section:nth-of-type(2){
+	width:33%;
+}
+.contact>section>form label{
+	display: none;
+}
+.contact>section>form input, .contact>section>form textarea{
+	display:block;
+	width:100%;
+	margin:10px;
+	padding:2px;
+	color:#333;
+}
+
