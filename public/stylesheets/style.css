@@ -136,3 +136,44 @@ nav a{
 .portfolioItem>#imgContainer.fullImg{
 	height:100%;
 }
+/*about page styles*/
+.about{
+	box-sizing:border-box;
+	padding:40px;
+	background:rgba(250,250,250,0.6);
+}
+.about>section:first-of-type{
+	width:100%;
+	min-height:200px;
+}
+.about>section:first-of-type>img{
+	display:inline-block;
+	width:20%;
+	height:auto;
+}
+.about>section:nth-of-type(2){
+	width:100%;
+	min-height:200px;
+}
+.about>section:nth-of-type(2)>section{
+	width:25%;
+	display:inline-block;
+}
+.about>section:nth-of-type(3){
+	width:100%;
+	min-height:200px;
+}
+.about>section:nth-of-type(3)>section{
+	width:50%;
+	display:inline-block;
+}
+/*services styles*/
+.services{
+	box-sizing:border-box;
+	padding:40px;
+	background:rgba(250,250,250,0.6);
+}
+.services>section{
+	width:33%;
+	display:inline-block;
+}
