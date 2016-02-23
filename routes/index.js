@@ -1,4 +1,7 @@
 var express = require('express');
+//attach nodemailer
+var nodemailer= require('nodemailer');
+
 var router = express.Router();
 var portfolioItem = {
 		"pName0": {
@@ -19,7 +22,52 @@ router.get('/', function(req, res, next) {
 //create route for Portfoli page
 router.get('/portfolio', function(req,res,next){
 	res.render('portfolio',{title: 'Brandon Elliott | Portfolio'});
+
 	res.end();
+	
+});
+
+router.get('/contact/mail', function(req,res,next){
+	var url = req.query;
+	console.log(url);
+	//create test message
+	var mailOptions= {
+	  from: '"'+url.name+'"<'+url.email+'>',
+	  to: 'brandon6elliott@gmail.com',
+	  subject: url.name,
+	  text:url.project
+	}
+
+	// configure smtp
+	var smtpConfig={
+	  host: 'smtp.gmail.com',
+	  port: 465,
+	  secure: true,
+	  auth: {
+	    user:'brandon6elliott@gmail.com',
+	    pass: '***'
+	  }
+	};
+	//create transporter
+	var transporter = nodemailer.createTransport(smtpConfig);
+	//check for errors in mailer
+	transporter.verify(function(error, success) {
+	   if (error) {
+	        console.log(error);
+	   } else {
+	        console.log('Server is ready to take our messages');
+	   }
+	});
+
+	//send test message
+	  transporter.sendMail(mailOptions, function(error, info){
+	    if(error){
+	        return console.log(error);
+	    }
+	    console.log('Message sent: ' + info.response);
+	});
+	  res.redirect('/contact');
+	  res.end();
 });
 
 router.get('/portfolio/barriecycling', function(req,res,next){
