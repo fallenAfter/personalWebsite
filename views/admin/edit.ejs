@@ -1,0 +1,23 @@
+<!-- attach header -->
+<%- include ../partials/header.ejs %>
+<!-- main -->
+<section class="admin add">
+	<form action="/admin/edit/<%= portfolio._id%>" method="POST">
+		<label for="title">Title</label>
+		<input type="text" id="title" name="title" value="<%= portfolio.title%>">
+		<label for="pageUrl">page URL</label>
+		<input type="text" name="pageUrl" id="pageUrl" value="<%= portfolio.pageUrl%>">
+		<label for="desc">Description</label>
+		<textarea id="desc" name="desc"><%= portfolio.description%></textarea>
+		<label for="git">gitHub</label>
+		<input type="text" id="git" name="git" value="<%= portfolio.gitHub%>">
+		<label for="url">URL</label>
+		<input type="text" id="url" name="url" value="<%= portfolio.url%>">
+		<label for="img">Image</label>
+		<input type="file" id="img" name="img">
+		<button>Add entry</button>
+	</form>
+</section>
+
+<!-- Attach footer -->
+<%- include ../partials/footer.ejs %>

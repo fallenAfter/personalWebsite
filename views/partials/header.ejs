@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="portfolioApp">
   <head>
     <title><%= title %></title>
     <!-- google fonts -->
@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="/stylesheets/bulma.min.css">
     <link rel="stylesheet" href="/stylesheets/font-awesome.min.css">
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <!-- link angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <!-- link angular controlelrs -->
+    <script src="/javascript/controller.js"></script>
     
   </head>
   <body>
@@ -18,8 +22,7 @@
           <li><a href="/">home</a></li>
           <li><a href="/portfolio">portfolio</a></li>
           <li><a href="/about">about</a></li>
-          <li><a href="/services">services</a></li>
           <li><a href="/contact">contact</a></li>
         </ul>
     	</nav>
-    </header><section>
+    </header><main>

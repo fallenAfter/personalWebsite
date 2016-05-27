@@ -1,18 +1,14 @@
 var express = require('express');
+//add mongoose
+var mongoose = require('mongoose');
 //attach nodemailer
 var nodemailer= require('nodemailer');
+//get models
+var Portfolio = require('../models/portfolio');
+//import smtp cnfiguration file
+var smtpConfig = require("../config/smtp");
 
 var router = express.Router();
-var portfolioItem = {
-		"pName0": {
-			"title": "item1",
-			"imgURL": "/images/snowFootPrint.jpg",
-			"imgALT": "This is the main image here",
-			"portfolioCopy": "Hello World",
-			"gitHubAddr": "http://github.com",
-			"tags": ["portfolio", "school", "Node"]
-		}
-	};
 
 // variables for portfolio page
 /* GET home page. */
@@ -21,9 +17,17 @@ router.get('/', function(req, res, next) {
 });
 //create route for Portfoli page
 router.get('/portfolio', function(req,res,next){
-	res.render('portfolio',{title: 'Brandon Elliott | Portfolio'});
-
-	res.end();
+	Portfolio.find(function(error,portfolio){
+		if(error){
+			console.log(error);
+			res.end(error);
+		}
+		res.render('portfolio',{
+			title: 'Brandon Elliott | Portfolio',
+			portfolio: portfolio
+		});
+	});
+	
 	
 });
 
@@ -38,16 +42,6 @@ router.get('/contact/mail', function(req,res,next){
 	  text:url.project
 	}
 
-	// configure smtp
-	var smtpConfig={
-	  host: 'smtp.gmail.com',
-	  port: 465,
-	  secure: true,
-	  auth: {
-	    user:'brandon6elliott@gmail.com',
-	    pass: '***'
-	  }
-	};
 	//create transporter
 	var transporter = nodemailer.createTransport(smtpConfig);
 	//check for errors in mailer
@@ -69,6 +63,15 @@ router.get('/contact/mail', function(req,res,next){
 	  res.redirect('/contact');
 	  res.end();
 });
+router.get('/portfolio/:pageUrl', function(req,res,next){
+	var pageUrl = req.params.pageUrl;
+	Portfolio.find({pageUrl: pageUrl}, function(err, portfolio){
+		res.render('item1', {
+			title: portfolio[0].title,
+			portfolio: portfolio[0]
+		})
+	})
+})
 
 router.get('/portfolio/barriecycling', function(req,res,next){
 	res.render('item1', {
@@ -82,30 +85,8 @@ router.get('/portfolio/barriecycling', function(req,res,next){
 	res.end();
 });
 
-router.get('/portfolio/jackiejones', function(req,res,next){
-	res.render('item1', {
-		"title": "Jackie Jones",
-		"imgURL": "/images/jackieJones.png",
-		"imgALT": "Image of Jackie jones website initial view with navigation and full screen header video",
-		"portfolioCopy": "jackie Jones was an ongoing project for a local real-estate agent. Her need were to create a wordpress website that showed her off as being different from other local agents and to create distinction to her brand. I built this entire website with supervision from my boss where I had to identify capabilities of the theme selected by the client and create modern pages.",
-		"gitHubAddr": "http://joneshomes.ca",
-		"tags": ["portfolio", "school", "Wordpress", "real-estate", "jackie Jones"]
-	});
-	res.end();
-});
-// for(var counter=0;counter<Object.keys(portfolioItem).length;counter++){
-// 	router.get('/portfolio/'+portfolioItem['pName'+counter]['title'], function(req,res,next){
-// 		console.log(portfolioItem['pName'+counter]['title']);
-	
-// 		res.render('item1', portfolioItem['pName'+counter]);
-// 	});
-// }
 router.get('/about', function(req,res,next){
 	res.render('about', {'title': 'about'});
-	res.end();
-});
-router.get('/services',function(req,res,next){
-	res.render('services',{"title": "Services"});
 	res.end();
 });
 router.get('/contact',function(req,res,next){

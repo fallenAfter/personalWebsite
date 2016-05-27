@@ -2,9 +2,11 @@
 <%- include partials/header.ejs %>
 <!-- main content goes here -->
 <section class="portfolio">
-	<h1>portfolio</h1>
-	<section><a href="/portfolio/jackiejones"><h3>Jackie Jones Website</h3></a></section>
-	<section><a href="/portfolio/barriecycling"><h3>Portfolio title</h3></a></section>
+	<% for(var counter = 0;counter<portfolio.length;counter++){%>
+		<a href="/portfolio/<%= portfolio[counter].pageUrl %>">
+			<h2><%= portfolio[counter].title%></h2>
+		</a>
+	<% } %>
 </section>
 <!-- Attach footer -->
 <%- include partials/footer.ejs %>

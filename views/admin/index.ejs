@@ -1,0 +1,23 @@
+<!-- attach header -->
+<%- include ../partials/header.ejs %>
+<!-- main -->
+<section class="admin">
+	<a href="/admin/add">Add portfolio entry</a>
+	<table>
+		<tr>
+			<th>Title</th>
+			<th>Edit</th>
+			<th>Delete</th>
+		</tr>
+		<% for(var counter=0; counter<portfolio.length;counter++){ %>
+			<tr>
+				<td><%= portfolio[counter].title %></td>
+				<td><a href="/admin/edit/<%= portfolio[counter]._id%>">edit</a></td>
+				<td><a href="/admin/delete/<%= portfolio[counter]._id%>">delete</a></td>
+			</tr>
+		<% } %>
+	</table>
+</section>
+
+<!-- Attach footer -->
+<%- include ../partials/footer.ejs %>

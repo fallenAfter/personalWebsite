@@ -4,11 +4,15 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 //attach nodemailer
 var nodemailer= require('nodemailer');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var admin = require('./routes/admin');
+//attach database conection
+var dbConn = require('./config/db');
 
 var app = express();
 
@@ -26,6 +30,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/admin', admin);
+
+//connect to database
+mongoose.connect(dbConn);
+ var db = mongoose.connection;
+ db.on('error', console.error.bind(console, 'Connection error'));
+ db.once('open', function(){
+  console.log('connected to database');
+ });
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

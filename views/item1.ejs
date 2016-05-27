@@ -5,13 +5,16 @@
 	<h1><%= title %></h1>
 	<!-- container to hold image. This will resize to view full image but by default is a height to maintane a layout -->
 	<div id="imgContainer" class="test">
-		<img src="<%= imgURL %>" alt="<%= imgALT %>">
+		<img src="" alt="">
 	</div>
 	<a href="#" id="seeImg">see full image</a>
 
-	<p><%= portfolioCopy %></p>
-	<a href="<%= gitHubAddr %>" class="button">View site</a>
-
+	<p><%= portfolio.description %></p>
+	<a href="<%= portfolio.gitHub %>" class="button">View repository</a>
+	<% if(portfolio.url != ''){%>
+		<a href="<%= portfolio.url %>" class="button">View site</a>
+	<%}%>
+ 
 </section>
 <!-- Attach footer -->
 <%- include partials/footer.ejs %>
