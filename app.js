@@ -7,6 +7,11 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 //attach nodemailer
 var nodemailer= require('nodemailer');
+//authentication packages
+var passport = require('passport');
+var session = require('express-session');
+var flash = require('connect-flash');
+var localStrategy = require('passport-local').Strategy;
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -27,6 +32,25 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+//enable flash for showing messages
+app.use(flash());
+
+//configure passport
+app.use(session({
+  secret: 'It was me who broke the light in the bedroom years ago',
+  resave: true,
+  saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+//use account model
+var Account = require('./models/accounts');
+passport.use(Account.createStrategy());
+passport.use(new localStrategy(Account.authenticate()));
+//methods for accessing session data
+passport.serializeUser(Account.serializeUser());
+passport.deserializeUser(Account.deserializeUser());
 
 app.use('/', routes);
 app.use('/users', users);

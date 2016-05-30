@@ -4,13 +4,17 @@
 <section class="portfolioItem">
 	<h1><%= title %></h1>
 	<!-- container to hold image. This will resize to view full image but by default is a height to maintane a layout -->
-	<div id="imgContainer" class="test">
-		<img src="" alt="">
-	</div>
+	<% if(portfolio.img != ''){%>
+		<div id="imgContainer" class="test">
+			<img src="/images/portfolio/<%= portfolio.img%>" alt="">
+		</div>
+	<%}%>
 	<a href="#" id="seeImg">see full image</a>
 
 	<p><%= portfolio.description %></p>
-	<a href="<%= portfolio.gitHub %>" class="button">View repository</a>
+	<% if(portfolio.gitHub != ''){%>
+		<a href="<%= portfolio.gitHub %>" class="button">View repository</a>
+	<%}%>
 	<% if(portfolio.url != ''){%>
 		<a href="<%= portfolio.url %>" class="button">View site</a>
 	<%}%>

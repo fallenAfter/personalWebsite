@@ -1,0 +1,17 @@
+<!-- attach header -->
+<%- include ../partials/header.ejs %>
+<!-- main -->
+<section class="admin register">
+	<form action="/admin/register" method="POST">
+		<label for="username">Username</label>
+		<input type="text" name="username" id="username">
+		<label for="password">password</label>
+		<input type="password" name="password" id="password">
+		<label for="confirm">Confirm Password</label>
+		<input type="password" name="confirm" id="confirm">
+		<button>Login</button>
+	</form>
+</section>
+
+<!-- Attach footer -->
+<%- include ../partials/footer.ejs %>
